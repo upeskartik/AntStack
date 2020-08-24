@@ -1,0 +1,17 @@
+###
+GET http://localhost:3000/api/find-metatag
+Content-Type: application/json
+
+{
+    "url": "https://www.amazon.com",
+    "metatag_name": "Keywords"
+}
+
+###
+GET http://localhost:3000/api/dns-lookup
+Content-Type: application/json
+
+{
+    "url": "geeksforgeeks.org",
+    "dns_txt": "A"
+}
