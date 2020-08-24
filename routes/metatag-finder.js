@@ -11,7 +11,7 @@ router.get('/find-metatag', (req, res) => {
     request(req.body.url, function (error, response, html) {
         if (!error && response.statusCode == 200) {
             var $ = cheerio.load(html)
-            let meta_name = []
+            let found = false
             $('meta').each(function(i, e){
                 if ($(this).attr('name') == req.body.metatag_name){
                     res.send({
@@ -19,6 +19,11 @@ router.get('/find-metatag', (req, res) => {
                     })
                     console.log("found")
                 }
+            if (!found){
+                res.send({
+                    "status": "not found"
+                })
+            }
             })
         }
     });
