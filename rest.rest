@@ -13,5 +13,5 @@ Content-Type: application/json
 
 {
     "url": "geeksforgeeks.org",
-    "dns_txt": "AAAA"
+    "dns_txt": "A"
 }

@@ -18,7 +18,7 @@ router.get('/find-metatag', (req, res) => {
                         res.send({
                             "content": $(this).attr('content')
                         })
-                        return;
+                        found = true
                         console.log("found")
                     }
                 if (!found){
@@ -27,6 +27,9 @@ router.get('/find-metatag', (req, res) => {
                     })
                 }
                 })
+            }
+            else{
+                res.status(400).send({ status: "ERROR", errorCode: "some error occurred"})
             }
         });
     } catch (error) {
