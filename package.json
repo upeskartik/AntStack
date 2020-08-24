@@ -15,5 +15,13 @@
     "request": "^2.88.2"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upeskartik/AntStack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/upeskartik/AntStack/issues"
+  },
+  "homepage": "https://github.com/upeskartik/AntStack#readme"
 }
