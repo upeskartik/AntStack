@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const request = require('request')
 const cheerio = require('cheerio')
-/* const parse5 = require('parse5') */
 const dns = require('dns')
 
 router.get('/find-metatag', (req, res) => {
@@ -13,8 +12,6 @@ router.get('/find-metatag', (req, res) => {
         request(req.body.url, function (error, response, html) {
             if (!error && response.statusCode == 200) {
                 var $ = cheerio.load(html)
-                /* var doc = parse5.parse(html) */
-                /* console.log(doc.childNodes) */
                 let found = false
                 $('meta').each(function(i, e){
                     if ($(this).attr('name') == req.body.metatag_name){
