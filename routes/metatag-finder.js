@@ -21,7 +21,7 @@ router.get('/find-metatag', (req, res) => {
                         found = true
                         console.log("found")
                     }
-                if (!found){
+                if (found == false){
                     res.send({
                         "status": "not found"
                     })
