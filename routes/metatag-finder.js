@@ -10,6 +10,9 @@ router.get('/find-metatag', (req, res) => {
     }
     try {
         request(req.body.url, function (error, response, html) {
+            if (error){
+                res.status(500).send({ status: "ERROR", errorCode: "Unhandled Error"})
+            }
             if (!error && response.statusCode == 200) {
                 var $ = cheerio.load(html)
                 let found = false
@@ -43,6 +46,8 @@ router.get('/dns-lookup', (req, res) => {
     }
     try {
         dns.resolve(req.body.url, rrtype=req.body.dns_txt, (err, address) => {
+            console.log("err")
+            console.log(err)
             if (address){
                 res.send({
                     "status": "found",
