@@ -18,6 +18,7 @@ router.get('/find-metatag', (req, res) => {
                         res.send({
                             "content": $(this).attr('content')
                         })
+                        return;
                         console.log("found")
                     }
                 if (!found){

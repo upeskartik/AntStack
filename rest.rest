@@ -3,7 +3,7 @@ GET https://antstackmetalog.herokuapp.com/api/find-metatag
 Content-Type: application/json
 
 {
-    "url": "https://www.amazon.com",
+    "url": "https://www.flipkart.com",
     "metatag_name": "Keywords"
 }
 
@@ -13,5 +13,5 @@ Content-Type: application/json
 
 {
     "url": "geeksforgeeks.org",
-    "dns_txt": "A"
+    "dns_txt": "AAAA"
 }
