@@ -48,6 +48,7 @@ router.get('/dns-lookup', (req, res) => {
         dns.resolve(req.body.url, rrtype=req.body.dns_txt, (err, address) => {
             console.log("err")
             console.log(err)
+            console.log("err end")
             if (address){
                 res.send({
                     "status": "found",
