@@ -21,8 +21,9 @@ The working API is hosted [here]https://antstackmetalog.herokuapp.com
 
 ## Setting up the environment for local development
 Run npm install after pulling the source code, in the source directory.
-### run the api in your local machine using the below command
-node app.js
+
+## Running API Server
+Run the API server in your local machine using the command `node app.js`
 
 ### Testing
 
