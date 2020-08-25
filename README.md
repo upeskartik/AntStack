@@ -8,5 +8,5 @@ The working API is hosted at https://antstackmetalog.herokuapp.com
 
 ## Setting up the environment for local development
 Run npm install after pulling the source code, in the source directory.
-### run the api using the below command
+### run the api in your local machine using the below command
 node app.js
