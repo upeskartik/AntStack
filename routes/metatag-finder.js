@@ -43,7 +43,6 @@ router.get('/dns-lookup', (req, res) => {
     if (!req.body.url || !req.body.dns_txt){
         return res.status(400).send({ status: "ERROR", errorCode: "invalid-api-parameters" });
     }
-    let url = req.body.url
     try {
         dns.resolve(req.body.url, rrtype=req.body.dns_txt, (err, address) => {
             if (address){
