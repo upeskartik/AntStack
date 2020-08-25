@@ -49,8 +49,14 @@ router.get('/dns-lookup', (req, res) => {
             if (!err){
                 console.log(err)
                 return res.status(404).send({ status: "ERROR", errorCode: "website not found"})
+            } else{
+                res.send({
+                    "status": "found",
+                    "dns_txt": req.body.dns_txt,
+                    "domain": address
+                })
             }
-            console.log("err")
+            /* console.log("err")
             console.log(err)
             console.log("err end")
             if (address){
@@ -63,7 +69,7 @@ router.get('/dns-lookup', (req, res) => {
                 res.send({
                     "status": "not found"
                 })
-            }
+            } */
         })   
     } catch (error) {
         res.status(400).send({ status: "ERROR", errorCode: "dns resolve failed"})
