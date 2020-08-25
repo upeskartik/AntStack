@@ -17,7 +17,7 @@ This API is created for two purposes:
     "dns_txt": "A"
   }
 
-The working API is hosted [here]https://antstackmetalog.herokuapp.com
+The working API is hosted [here](https://antstackmetalog.herokuapp.com)
 
 ## Setting up the environment for local development
 Run npm install after pulling the source code, in the source directory.
