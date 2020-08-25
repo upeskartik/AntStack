@@ -11,7 +11,7 @@ router.get('/find-metatag', (req, res) => {
     try {
         request(req.body.url, function (error, response, html) {
             if (error){
-                res.status(500).send({ status: "ERROR", errorCode: "Unhandled Error"})
+                return res.status(500).send({ status: "ERROR", errorCode: "Unhandled Error"})
             }
             if (!error && response.statusCode == 200) {
                 var $ = cheerio.load(html)
@@ -22,7 +22,6 @@ router.get('/find-metatag', (req, res) => {
                             "content": $(this).attr('content')
                         })
                         found = true
-                        console.log("found")
                     }
                 });
                 if (found == false){
@@ -32,7 +31,7 @@ router.get('/find-metatag', (req, res) => {
                 }
             }
             else{
-                res.status(400).send({ status: "ERROR", errorCode: "some error occurred"})
+                return res.status(400).send({ status: "ERROR", errorCode: "some error occurred"})
             }
         });
     } catch (error) {
@@ -44,25 +43,23 @@ router.get('/dns-lookup', (req, res) => {
     if (!req.body.url || !req.body.dns_txt){
         return res.status(400).send({ status: "ERROR", errorCode: "invalid-api-parameters" });
     }
+    let url = req.body.url
     try {
         dns.resolve(req.body.url, rrtype=req.body.dns_txt, (err, address) => {
-            console.log("err")
-            console.log(err)
-            console.log("err end")
             if (address){
-                res.send({
+                return res.send({
                     "status": "found",
                     "dns_txt": req.body.dns_txt,
                     "domain": address
                 })
             } else{
-                res.send({
+                return res.send({
                     "status": "not found"
                 })
             }
         })   
     } catch (error) {
-        res.status(400).send({ status: "ERROR", errorCode: "dns resolve failed"})
+        return res.status(400).send({ status: "ERROR", errorCode: "dns resolve failed"})
     }
 })
 
